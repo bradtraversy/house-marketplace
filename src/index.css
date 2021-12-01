@@ -79,6 +79,13 @@ button {
   right: -2%;
 }
 
+.editIcon {
+  cursor: pointer;
+  position: absolute;
+  top: -3.4%;
+  right: 20px;
+}
+
 .pageContainer,
 .offers,
 .profile,
