@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -40,6 +41,9 @@ function Listing() {
 
   return (
     <main>
+      <Helmet>
+        <title>{listing.name}</title>
+      </Helmet>
       <Swiper slidesPerView={1} pagination={{ clickable: true }}>
         {listing.imgUrls.map((url, index) => (
           <SwiperSlide key={index}>
