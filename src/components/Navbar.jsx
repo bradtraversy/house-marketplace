@@ -41,7 +41,7 @@ function Navbar() {
             />
             <p
               className={
-                pathMatchRoute('/offer')
+                pathMatchRoute('/offers')
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'
               }
