@@ -118,6 +118,10 @@ button {
   align-items: center;
 }
 
+.pageContainer{
+  margin-bottom: 10rem;
+}
+
 .loadingSpinner {
   width: 64px;
   height: 64px;
