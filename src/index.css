@@ -824,3 +824,50 @@ button {
   font-size: 0.8rem;
   opacity: 0.75;
 }
+
+.editListingImgContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.editListingImg {
+  position: relative;
+  width: 40%;
+  height: 100px;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  margin: 1rem;
+}
+@media (min-width: 1024px) {
+  .editListingImg {
+    width: 19%;
+    height: 217px;
+  }
+}
+
+.editListingImgText {
+  position: absolute;
+  color: #ffffff;
+  top: 0;
+  left: 0;
+  font-weight: 600;
+  max-width: 90%;
+  font-size: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem;
+}
+
+input[type='checkbox'] {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.8);
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+}
