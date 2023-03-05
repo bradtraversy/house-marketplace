@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getAuth, updateProfile } from 'firebase/auth'
+import { getAuth, updateProfile, updateEmail } from 'firebase/auth'
 import {
   updateDoc,
   doc,
@@ -65,25 +65,34 @@ function Profile() {
     navigate('/')
   }
 
-  const onSubmit = async () => {
+const onSubmit = async () => {
     try {
-      if (auth.currentUser.displayName !== name) {
-        // Update display name in fb
+      const userRef = doc(db, 'users', auth.currentUser.uid)
+      //For userName
+      if(auth.currentUser.displayName !== name){
+        //Update display name in firebase
         await updateProfile(auth.currentUser, {
-          displayName: name,
+          displayName: name
         })
-
-        // Update in firestore
-        const userRef = doc(db, 'users', auth.currentUser.uid)
+        //update in fireStore
         await updateDoc(userRef, {
-          name,
+          name
+        })
+      }
+      //for E-mail
+      else if (auth.currentUser.email !== email) {
+
+        await updateEmail(auth.currentUser, email)
+
+        await updateDoc(userRef, {
+          email
         })
       }
     } catch (error) {
-      console.log(error)
-      toast.error('Could not update profile details')
+      // console.log(error)
+      toast.error('Could not update details')
     }
-  }
+  };
 
   const onChange = (e) => {
     setFormData((prevState) => ({
